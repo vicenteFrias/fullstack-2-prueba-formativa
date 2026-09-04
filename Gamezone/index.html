@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEZONE - Iniciar Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar bg-white border-bottom shadow-sm px-3 mb-4">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a class="navbar-brand fw-bold text-dark text-decoration-none" href="index.html">HOME</a>
+            <span class="h4 mb-0 fw-bold">GAMEZONE</span>
+            <a href="registro.html" class="btn btn-dark btn-sm fw-semibold">REGISTRARSE</a>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                
+                <div class="card shadow-sm border">
+                    <div class="card-header bg-secondary-subtle py-3">
+                        <h2 class="h5 mb-0 fw-bold text-dark">Inicio de sesión</h2>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <form id="formLogin" novalidate>
+
+                            <div class="mb-3">
+                                <label for="loginCorreo" class="form-label fw-bold small">CORREO</label>
+                                <input type="email" class="form-control" id="loginCorreo" placeholder="usuario@duoc.cl">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label fw-bold small">CONTRASEÑA</label>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Ingresa tu contraseña">
+                            </div>
+
+                            <div class="alert alert-danger small py-2 d-none" id="errorLogin" role="alert"></div>
+                            <div class="alert alert-success small py-2 d-none" id="exitoLogin" role="alert"></div>
+
+                            <button type="submit" id="btnLogin" class="btn btn-dark w-100 py-2 fw-bold mt-2">Iniciar sesión</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
