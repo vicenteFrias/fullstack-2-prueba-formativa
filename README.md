@@ -10,8 +10,8 @@ Implementación del flujo de registro e inicio de sesión para la tienda web Gam
 
 * HTML5
 * CSS3
-* Bootstrap 5.3 (vía CDN)
-* JavaScript nativo (ES6)
+* Bootstrap (vía CDN)
+* JavaScript 
 * LocalStorage para persistencia de datos
 
 ## Validaciones implementadas en el registro
