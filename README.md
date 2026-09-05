@@ -18,7 +18,7 @@ Implementación de registro e inicio de sesión para la tienda web GameZone. El 
 
 * **Nombre Completo:** Obligatorio, solo caracteres alfabéticos y espacios, con un límite de 100 caracteres.
 * **Correo Electrónico:** Formato estándar válido, dominio restringido exclusivamente a `@duoc.cl`, máximo 60 caracteres y validación de unicidad en el sistema.
-* **Contraseña:** Mínimo 10 caracteres, requiriendo al menos una letra mayúscula, una minúscula, un número y un símbolo especial (`@#$%&*!_-.`).
+* **Contraseña:** Mínimo 10 caracteres, requiriendo al menos una letra mayúscula, una minúscula, un número y un símbolo especial.
 * **Confirmar Contraseña:** Debe coincidir exactamente con el campo de contraseña.
 * **Teléfono:** Campo opcional; si se completa, solo admite formato numérico de 8 a 12 dígitos.
 * **Géneros favoritos:** Selección obligatoria de al menos una opción del listado.
