@@ -34,8 +34,6 @@ Implementación del flujo de registro e inicio de sesión para la tienda web Gam
 ```text
 ├── index.html          # Vista de Login
 ├── registro.html       # Vista de Formulario de Registro
-├── css/
-│   └── estilo.css      # Estilos personalizados complementarios
-└── js/
-    ├── registro.js     # Validaciones y guardado de usuarios
-    └── login.js        # Lógica de inicio de sesión
+│── estilo.css      # Estilos personalizados complementarios
+├── registro.js     # Validaciones y guardado de usuarios
+└── login.js        # Lógica de inicio de sesión
