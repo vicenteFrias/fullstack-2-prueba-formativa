@@ -1,10 +1,10 @@
 # GameZone - Sistema de Registro y Login
 
-Proyecto desarrollado para la Evaluación Formativa 1 de la asignatura Desarrollo Full Stack II en Duoc UC.
+Proyecto desarrollado para la Evaluación Formativa 1 de la asignatura FullStack II.
 
 ## Descripción del proyecto
 
-Implementación del flujo de registro e inicio de sesión para la tienda web GameZone. El diseño está adaptado para funcionar de forma correcta tanto en dispositivos móviles como en navegadores de escritorio, resolviendo problemas de usabilidad mediante validaciones en tiempo real.
+Implementación de registro e inicio de sesión para la tienda web GameZone. El diseño está adaptado para funcionar de forma correcta tanto en dispositivos móviles como en computadores, resolviendo problemas de usabilidad mediante validaciones en tiempo real.
 
 ## Tecnologías utilizadas
 
@@ -25,7 +25,7 @@ Implementación del flujo de registro e inicio de sesión para la tienda web Gam
 
 ## Funcionamiento del Login
 
-* Valida las credenciales contra los registros almacenados en `localStorage`.
+* Valida las credenciales contra los registros almacenados.
 * Muestra mensajes de error diferenciados si el correo no está registrado o si la contraseña ingresada no corresponde.
 * Despliega mensaje de bienvenida al autenticar correctamente.
 
