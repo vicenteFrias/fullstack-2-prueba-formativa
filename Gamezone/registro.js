@@ -1,4 +1,3 @@
-
 const formRegistro = document.getElementById('formRegistro');
 const inputNombre = document.getElementById('nombre');
 const inputCorreo = document.getElementById('correo');
@@ -27,7 +26,10 @@ formRegistro.addEventListener('submit', (evento) => {
     const telefono = inputTelefono.value.trim();
 
     const checkboxes = document.querySelectorAll('.check-genero:checked');
-    const generosSeleccionados = Array.from(checkboxes).map(chk => chk.value);
+    const generosSeleccionados = [];
+    for (let i = 0; i < checkboxes.length; i++) {
+        generosSeleccionados.push(checkboxes[i].value);
+    }
 
     const regexNombre = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
     if (nombre === '') {
@@ -44,13 +46,19 @@ formRegistro.addEventListener('submit', (evento) => {
         esValido = false;
     }
 
-    const regexCorreo = /^[a-zA-Z0-9._%+-]+@duoc\.cl$/;
     let textoUsuarios = localStorage.getItem('usuariosGamezone');
     let usuarios = JSON.parse(textoUsuarios);
     if (usuarios == null) {
         usuarios = []; 
     }
-
+    let correoExiste = false;
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].correo === correo) {
+            correoExiste = true;
+            break;
+        }
+    }
+    const regexCorreo = /^[a-zA-Z0-9._%+-]+@duoc\.cl$/;
     if (correo === '') {
         errorCorreo.textContent = 'El correo electrónico es obligatorio.';
         inputCorreo.classList.add('is-invalid');
@@ -63,34 +71,28 @@ formRegistro.addEventListener('submit', (evento) => {
         errorCorreo.textContent = 'El correo no puede tener más de 60 caracteres.';
         inputCorreo.classList.add('is-invalid');
         esValido = false;
-    } else if (usuariosGuardados.some(u => u.correo === correo)) {
+    } else if (correoExiste) {
         errorCorreo.textContent = 'Este correo ya se encuentra registrado en el sistema.';
         inputCorreo.classList.add('is-invalid');
         esValido = false;
     }
-
     const regexPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%&*!_\-.]).{10,}$/;
     if (!regexPass.test(password)) {
         errorPassword.textContent = 'Debe tener al menos 10 caracteres, una mayúscula, una minúscula, un número y un símbolo (@#$%).';
         inputPassword.classList.add('is-invalid');
         esValido = false;
     }
-
     if (confirmPassword !== password || confirmPassword === '') {
         errorConfirmPassword.textContent = 'Las contraseñas no coinciden.';
         inputConfirmPassword.classList.add('is-invalid');
         esValido = false;
     }
-
-   
     const regexTelefono = /^[0-9]{8,12}$/;
     if (telefono !== '' && !regexTelefono.test(telefono)) {
         errorTelefono.textContent = 'El teléfono debe contener solo números (entre 8 y 12 dígitos).';
         inputTelefono.classList.add('is-invalid');
         esValido = false;
     }
-
-
     if (generosSeleccionados.length === 0) {
         errorGeneros.textContent = 'Debes seleccionar al menos un género favorito.';
         esValido = false;
@@ -105,8 +107,8 @@ formRegistro.addEventListener('submit', (evento) => {
             generos: generosSeleccionados
         };
 
-        usuariosGuardados.push(nuevoUsuario);
-        localStorage.setItem('usuariosGamezone', JSON.stringify(usuariosGuardados));
+        usuarios.push(nuevoUsuario);
+        localStorage.setItem('usuariosGamezone', JSON.stringify(usuarios));
 
         mensajeExito.textContent = '¡Registro completado con éxito! Redirigiendo al Login...';
         mensajeExito.classList.remove('d-none');
