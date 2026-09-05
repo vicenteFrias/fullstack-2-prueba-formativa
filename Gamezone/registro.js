@@ -45,7 +45,11 @@ formRegistro.addEventListener('submit', (evento) => {
     }
 
     const regexCorreo = /^[a-zA-Z0-9._%+-]+@duoc\.cl$/;
-    const usuariosGuardados = JSON.parse(localStorage.getItem('usuariosGamezone')) || [];
+    let textoUsuarios = localStorage.getItem('usuariosGamezone');
+    let usuarios = JSON.parse(textoUsuarios);
+    if (usuarios == null) {
+        usuarios = []; 
+    }
 
     if (correo === '') {
         errorCorreo.textContent = 'El correo electrónico es obligatorio.';
